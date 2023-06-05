@@ -271,7 +271,7 @@ const removeTargetBook = e => {
 	e.remove()
 }
 
-const removeAllBooks = e => {
+const removeAllBooks = () => {
 	if ($bagListUl != undefined) $bagListUl.remove()
 	$bagTotal = 0
 	bagTotal.innerHTML = `${$bagTotal} $`
@@ -709,7 +709,17 @@ const exitFromConfirmationPanel = (confirmationPanel, confirmationPanelExit) => 
 	document.querySelector('.confirmationPanelExit').onclick = () => {
 		document.body.removeChild(confirmationPanel)
 		confirmationPanel.removeChild(confirmationPanelExit)
+		clearOrderAfterSend()
+		hideConfimOrder()
 	}
+}
+
+const clearOrderAfterSend = () => {
+	document.querySelectorAll('input').forEach(input => (input.value = ''))
+	document.querySelectorAll('input[type="checkbox"], input[type="radio"]').forEach(item => {
+		item.checked = false
+	})
+	removeAllBooks()
 }
 
 // LISTENERS
