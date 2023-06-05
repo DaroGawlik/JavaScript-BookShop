@@ -455,7 +455,7 @@ deliveryField.setAttribute('type', 'date')
 
 const checkDelivery = () => {
 	const today = new Date()
-	const tomorrow = `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`
+	const tomorrow = `${today.getFullYear()}-${'0' + (today.getMonth() + 1)}-${'0' + today.getDate()}`
 	dateUser = document.getElementById('deliveryCon').value
 	const errorConfirmDeliveryCon = document.querySelector('.errorConfirmDeliveryCon')
 	if (dateUser <= tomorrow) {
@@ -673,11 +673,9 @@ btnCom.disabled = true
 // CONFIRMATION
 
 btnCom.onclick = () => {
-	console.log('1')
 	const confirmationPanel = document.createElement('div')
 	document.body.appendChild(confirmationPanel)
 	confirmationPanel.classList.add('confirmationPanel')
-	console.log('2')
 
 	const confirmationPanelExit = document.createElement('button')
 	confirmationPanel.appendChild(confirmationPanelExit)
@@ -694,12 +692,12 @@ btnCom.onclick = () => {
 	} </span>
 	</br>
 	</br>
-	on adress: <span style='font-weight: 900'"> ${document.getElementById('streetCon').value} ${
+	On adress: <span style='font-weight: 900'"> ${document.getElementById('streetCon').value} ${
 		document.getElementById('houseNumberCon').value
 	} ${document.getElementById('flatNumberCon').value} </span>
 	</br>
 	</br>
-	till <span style='font-weight: 900'> ${document.getElementById('deliveryCon').value} </span>
+	Till <span style='font-weight: 900'> ${document.getElementById('deliveryCon').value} </span>
 	</br>
 	</br>
 	Thank you for your order, have a nice day!
