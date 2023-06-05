@@ -458,7 +458,7 @@ const checkDelivery = () => {
 	const tomorrow = `${today.getFullYear()}-${'0' + (today.getMonth() + 1)}-${'0' + today.getDate()}`
 	dateUser = document.getElementById('deliveryCon').value
 	const errorConfirmDeliveryCon = document.querySelector('.errorConfirmDeliveryCon')
-	if (dateUser <= tomorrow) {
+	if (dateUser >= tomorrow) {
 		errorConfirmDeliveryCon.innerText = 'Not earlier than next day'
 		validDate = false
 		deliveryField.style.borderColor = 'red'
